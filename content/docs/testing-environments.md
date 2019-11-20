@@ -3,6 +3,7 @@ id: testing-environments
 title: Testing Environments
 permalink: docs/testing-environments.html
 prev: testing-recipes.html
+next: end-to-end-testing.html
 ---
 
 <!-- This document is intended for folks who are comfortable with JavaScript, and have probably written tests with it. It acts as a reference for the differences in testing environments for React components, and how those differences affect the tests that they write. This document also assumes a slant towards web-based react-dom components, but has notes for other renderers. -->
@@ -11,11 +12,26 @@ This document goes through the factors that can affect your environment and reco
 
 ### Test runners {#test-runners}
 
-Test runners like [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava) let you write test suites as regular JavaScript, and run them as part of your development process. Additionally, test suites are run as part of continuous integration.
+Test runners like [Jest](https://jestjs.io/), [mocha](https://mochajs.org/), [ava](https://github.com/avajs/ava), [Cypress](https://www.cypress.io/) and [puppeteer](https://github.com/GoogleChrome/puppeteer) let you write test suites as regular JavaScript, and run them as part of your development process. Additionally, test suites are run as part of continuous integration.
+
+Test runners may be broken down into two categories: unit and end-to-end.
+
+#### Unit Test Runners
+
+- [Jest](https://jestjs.io/)
+- [mocha](https://mochajs.org/)
+- [ava](https://github.com/avajs/ava)
+
+#### End-to-end Test Runners
+
+- [Cypress](https://www.cypress.io/)
+- [puppeteer](https://github.com/GoogleChrome/puppeteer)
+
+### Which Test Runner Should I Use?
 
 - Jest is widely compatible with React projects, supporting features like mocked [modules](#mocking-modules) and [timers](#mocking-timers), and [`jsdom`](#mocking-a-rendering-surface) support. **If you use Create React App, [Jest is already included out of the box](https://facebook.github.io/create-react-app/docs/running-tests) with useful defaults.**
-- Libraries like [mocha](https://mochajs.org/#running-mocha-in-the-browser) work well in real browser environments, and could help for tests that explicitly need it.
-- End-to-end tests are used for testing longer flows across multiple pages, and require a [different setup](#end-to-end-tests-aka-e2e-tests).
+- Libraries like [mocha](https://mochajs.org/#running-mocha-in-the-browser), maybe used with [karma](https://karma-runner.github.io/) to run unit tests "on real browsers and real devices such as phones, tablets or on a headless PhantomJS instance", which may be incompatible against `jsdom`.
+- [End-to-end testing](#end-to-end-tests-aka-e2e-tests) is a methodology in which all of the layers of an application are tested within a _real_ web browser via _real_ user actions. They can be implemented using test runners like [Cypress](https://www.cypress.io/) or a library like [puppeteer](https://github.com/GoogleChrome/puppeteer). Read more about end-to-end testing on the [End-to-end Testing](/docs/end-to-end-testing.html) page.
 
 ### Mocking a rendering surface {#mocking-a-rendering-surface}
 
@@ -53,6 +69,18 @@ Sometimes, you may not want to mock timers. For example, maybe you're testing an
 
 ### End-to-end tests {#end-to-end-tests-aka-e2e-tests}
 
-End-to-end tests are useful for testing longer workflows, especially when they're critical to your business (such as payments or signups). For these tests, you'd probably want to test both how a real browser renders the whole app, fetches data from the real API endpoints, uses sessions and cookies, navigates between different links. You might also likely want to make assertions not just on the DOM state, but on the backing data as well (e.g. to verify whether the updates have been persisted to the database).
+End-to-end tests can make the applications you build more resilient to changes made throughout the application stack and compliment other forms of testing.
 
-In this scenario, you would use a framework like [Cypress](https://www.cypress.io/) or a library like [puppeteer](https://github.com/GoogleChrome/puppeteer) so you can navigate between multiple routes and assert on side effects not just in the browser, but potentially on the backend as well.
+They can test longer workflows including critical business paths, such as payments or signups.
+
+End-to-end tests allow you to assert:
+
+- Real browser rendering of the entire app
+- Data fetching against real API endpoints
+- The use of sessions and cookies
+- Navigation between multiple routes
+- Side effects within the web browser or backend
+
+In this scenario, you would use a test runner like [Cypress](https://www.cypress.io/) or a library like [puppeteer](https://github.com/GoogleChrome/puppeteer).
+
+Read more about end-to-end tests on the [End-to-end Testing](/docs/end-to-end-testing.html) page.
