@@ -135,6 +135,8 @@
       title: Testing Recipes
     - id: testing-environments
       title: Testing Environments
+    - id: end-to-end-testing
+      title: End-to-End Testing
 - title: Concurrent Mode (Experimental)
   isOrdered: true
   items:
