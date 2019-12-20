@@ -31,7 +31,7 @@ Different answers may work for different teams and products.
 
 **[React Testing Library](https://testing-library.com/react)** is a set of helpers that let you test React components without relying on their implementation details. This approach makes refactoring a breeze and also nudges you towards best practices for accessibility. Although it doesn't provide a way to "shallowly" render a component without its children, a test runner like Jest lets you do this by [mocking](/docs/testing-recipes.html#mocking-modules).
 
-**[Cypress](https://www.cypress.io/)** is a tool for writing, running, and debugging end-to-end tests in real web browsers. Read more about end-to-end testing React applications on the [End-to-end Testing](/docs/end-to-end-testing.html) page.
+**[Cypress](https://www.cypress.io/)** is a tool for writing, running, and debugging end-to-end tests in real web browsers. Read more about end-to-end testing React applications on the [End-to-end Testing](/docs/end-to-end-testing.html) guide.
 
 ### Learn More {#learn-more}
 
