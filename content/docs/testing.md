@@ -14,7 +14,7 @@ There are a few ways to test React components. Broadly, they divide into two cat
 - **Rendering component trees** in a simplified test environment and asserting on their output.
 - **Running a complete app** in a real web browser (also known as [end-to-end testing](/docs/end-to-end-testing.html)).
 
-This documentation focuses on both [unit testing strategies](/docs/testing-recipes.html) (the first case) and [end-to-end testing](/docs/end-to-end-testing.html).
+This documentation focuses on both [unit testing strategies](/docs/testing-recipes.html) (the first category) and [end-to-end testing](/docs/end-to-end-testing.html).
 
 ### Tradeoffs {#tradeoffs}
 
@@ -35,7 +35,7 @@ Different answers may work for different teams and products.
 
 ### Learn More {#learn-more}
 
-This section is divided in multiple pages:
+This section is divided into multiple guides:
 
 - [Recipes](/docs/testing-recipes.html): Common patterns when writing tests for React components.
 - [Environments](/docs/testing-environments.html): What to consider when setting up a testing environment for React components.
